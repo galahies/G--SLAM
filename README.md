@@ -2,7 +2,12 @@
 Geometrically-Guided 3D Gaussian Splatting SLAM via Robust Loop Validation and Anisotropic Shaping
 
 <p align="center">
-  <img src="media/teaser.jpg" alt="G--SLAM teaser" width="100%">
+  <img src="media/g2slam_teaser.png" alt="G--SLAM outdoor reconstruction teaser" width="100%">
+</p>
+
+<p align="center">
+  <strong>Real-world outdoor reconstruction result from G--SLAM.</strong><br>
+  The released snapshot highlights the paper's own campus-scale scene reconstructions, including long stair structures, facade boundaries, and reflective glass regions.
 </p>
 
 > Pre-acceptance release note:
@@ -19,6 +24,24 @@ At a high level, the pipeline combines:
 2. `Loop Closing`: robust loop candidate validation before Sim(3) optimization.
 3. `Online Mapping`: incremental 3D Gaussian map construction.
 4. `Offline Refinement`: global Gaussian and pose refinement after online tracking.
+
+## Real-World Showcase
+The following examples are taken from the real-world scene results prepared for the `G--SLAM` paper rather than the old `HI-SLAM2` teaser material.
+
+<p align="center">
+  <img src="media/g2slam_result.png" alt="G--SLAM facade reconstruction result" width="100%">
+</p>
+
+<p align="center">
+  <img src="media/g2slam_detail_1.png" alt="G--SLAM reflection detail" width="49%">
+  <img src="media/g2slam_detail_2.png" alt="G--SLAM local facade detail" width="49%">
+</p>
+
+These visualizations emphasize the aspects we care about in the paper:
+
+1. stable reconstruction of building-scale outdoor structure from monocular input;
+2. preservation of facade geometry and window boundaries under sparse views; and
+3. recoverable local detail around reflective and visually challenging regions.
 
 ## What Is Different From HI-SLAM2?
 This repository keeps the overall system structure of `HI-SLAM2`, but the public `g2slam` package is organized around the improvements described in the paper:
