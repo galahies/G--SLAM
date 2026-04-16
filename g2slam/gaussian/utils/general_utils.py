@@ -105,8 +105,8 @@ def safe_state(silent):
                 if x.endswith("\n"):
                     old_f.write(
                         x.replace(
-                                ,
-                                     .format(
+                            "\n",
+                            " [{}]\n".format(
                                 str(datetime.now().strftime("%d/%m %H:%M:%S"))
                             ),
                         )

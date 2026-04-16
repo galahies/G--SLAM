@@ -57,8 +57,8 @@ def render(viewpoint_camera, pc : GaussianModel, bg_color : torch.Tensor, scalin
     )
 
     return {"render": rendered_image,
-                   : rendered_expected_depth,
-                              : means2D,
-                                : radii > 0,
-                   : radii,
-                       : n_touched}
+            "depth": rendered_expected_depth,
+            "viewspace_points": means2D,
+            "visibility_filter": radii > 0,
+            "radii": radii,
+            "n_touched": n_touched}

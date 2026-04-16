@@ -37,9 +37,9 @@ class DPT(BaseModel):
         self.channels_last = channels_last
 
         hooks = {
-                           : [0, 1, 8, 11],
-                        : [2, 5, 8, 11],
-                        : [5, 11, 17, 23],
+            "vitb_rn50_384": [0, 1, 8, 11],
+            "vitb16_384": [2, 5, 8, 11],
+            "vitl16_384": [5, 11, 17, 23],
         }
 
         self.pretrained, self.scratch = _make_encoder(

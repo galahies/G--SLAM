@@ -274,22 +274,22 @@ class GSBackEnd(mp.Process):
         opt_params = []
         for view in self.viewpoints.values():
             opt_params.append({
-                            : [view.cam_rot_delta],
-                        : self.config["opt_params"]["pose_lr"],
-                          : "rot_{}".format(view.uid)})
+                    "params": [view.cam_rot_delta],
+                    "lr": self.config["opt_params"]["pose_lr"],
+                    "name": "rot_{}".format(view.uid)})
             opt_params.append({
-                            : [view.cam_trans_delta],
-                        : self.config["opt_params"]["pose_lr"],
-                          : "trans_{}".format(view.uid)})
+                    "params": [view.cam_trans_delta],
+                    "lr": self.config["opt_params"]["pose_lr"],
+                    "name": "trans_{}".format(view.uid)})
             if self.config["Training"]["compensate_exposure"]:
                 opt_params.append({
-                                : [view.exposure_a],
-                            : self.config["opt_params"]["exposure_lr"],
-                              : "exposure_a_{}".format(view.uid)})
+                        "params": [view.exposure_a],
+                        "lr": self.config["opt_params"]["exposure_lr"],
+                        "name": "exposure_a_{}".format(view.uid)})
                 opt_params.append({
-                                : [view.exposure_b],
-                            : self.config["opt_params"]["exposure_lr"],
-                              : "exposure_b_{}".format(view.uid)})
+                        "params": [view.exposure_b],
+                        "lr": self.config["opt_params"]["exposure_lr"],
+                        "name": "exposure_b_{}".format(view.uid)})
         self.keyframe_optimizers = torch.optim.Adam(opt_params)
 
         for iteration in (pbar := trange(1, iteration_total + 1)):

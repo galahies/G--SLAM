@@ -219,34 +219,34 @@ class GaussianModel:
 
         l = [
             {
-                        : [self._xyz],
-                    : training_args.position_lr_init * self.spatial_lr_scale,
-                      : "xyz",
+                "params": [self._xyz],
+                "lr": training_args.position_lr_init * self.spatial_lr_scale,
+                "name": "xyz",
             },
             {
-                        : [self._features_dc],
-                    : training_args.feature_lr,
-                      : "f_dc",
+                "params": [self._features_dc],
+                "lr": training_args.feature_lr,
+                "name": "f_dc",
             },
             {
-                        : [self._features_rest],
-                    : training_args.feature_lr / 20.0,
-                      : "f_rest",
+                "params": [self._features_rest],
+                "lr": training_args.feature_lr / 20.0,
+                "name": "f_rest",
             },
             {
-                        : [self._opacity],
-                    : training_args.opacity_lr,
-                      : "opacity",
+                "params": [self._opacity],
+                "lr": training_args.opacity_lr,
+                "name": "opacity",
             },
             {
-                        : [self._scaling],
-                    : training_args.scaling_lr * self.spatial_lr_scale,
-                      : "scaling",
+                "params": [self._scaling],
+                "lr": training_args.scaling_lr * self.spatial_lr_scale,
+                "name": "scaling",
             },
             {
-                        : [self._rotation],
-                    : training_args.rotation_lr,
-                      : "rotation",
+                "params": [self._rotation],
+                "lr": training_args.rotation_lr,
+                "name": "rotation",
             },
         ]
 
@@ -435,12 +435,12 @@ class GaussianModel:
         new_n_obs=None,
     ):
         d = {
-                 : new_xyz,
-                  : new_features_dc,
-                    : new_features_rest,
-                     : new_opacities,
-                     : new_scaling,
-                      : new_rotation,
+            "xyz": new_xyz,
+            "f_dc": new_features_dc,
+            "f_rest": new_features_rest,
+            "opacity": new_opacities,
+            "scaling": new_scaling,
+            "rotation": new_rotation,
         }
 
         optimizable_tensors = self.cat_tensors_to_optimizer(d)

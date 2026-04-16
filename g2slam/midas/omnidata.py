@@ -53,8 +53,8 @@ class OmnidataModel:
     patch_size = 32
     channel_dict = {"depth": 1, "normal": 3}
     ckpt_dict = {
-               : "omnidata_dpt_depth_v2.ckpt",
-                : "omnidata_dpt_normal_v2.ckpt",
+        "depth": "omnidata_dpt_depth_v2.ckpt",
+        "normal": "omnidata_dpt_normal_v2.ckpt",
     }
 
     def __init__(self, task="depth", model_path=None, device="cuda:0"):

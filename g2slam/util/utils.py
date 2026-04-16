@@ -6,10 +6,10 @@ import torch
 from matplotlib import cm
 
 _log_styles = {
-               : "bold green",
-         : "bold magenta",
-          : "bold red",
-          : "bold blue",
+    "GSBackend": "bold green",
+    "GUI": "bold magenta",
+    "Eval": "bold red",
+    "PGBA": "bold blue",
 }
 
 def get_style(tag):
